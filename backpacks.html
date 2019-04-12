@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Read favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+
+  <!-- Read jquery and fancybox -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+ 
+  <!-- Read fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+  <!-- Read Google Font Nunito -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <title>BACKPACKS | Traverse Outdoor Equipment</title>
+</head>
+<body ontouchstart="">
+  <div class="wrapper">
+    <header class="header">
+      <div class="header-inner">
+
+        <a href="./index.html">
+          <h1 class="brand">Traverse Outdoor Equipment</h1>
+        </a>
+
+        <nav id="sp-nav">
+          <div id="nav-toggle">
+            <input type="checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="nav-content">
+              <li>
+                <a class="signIn" href="">Sign In</a><a class="createAccount" href="">Create Account</a>
+              </li>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./tents.html">Tents</a></li>
+              <li><a href="./jackets.html">Jackets</a></li>
+              <li><a href="./backpacks.html">Backpacks</a></li>
+              <li><a href="./experience.html">Experience</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </nav><!-- ./#sp-nav -->
+
+        <a id="sp-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
+
+        <nav id="pc-nav">
+          <ul class="mainList">
+            <li><a href="./index.html">Home</a></li>
+            <li>
+              <a href="#">Products</a>
+              <ul class="subList">
+                <li><a href="./tents.html">Tents</a></li>
+                <li><a href="./jackets.html">Jackets</a></li>
+                <li><a href="./backpacks.html">Backpacks</a></li>
+              </ul>
+            </li>
+            <li><a href="./experience.html">Experience</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li class="signIn"><a href="#">Sign In</a></li>
+            <li class="createAccount"><a href="#">Create Account</a></li>
+          </ul>
+        </nav><!-- ./#pc-nav-->
+
+      </div>
+    </header><!-- /.header -->
+
+    <section class="container products">
+      <h2 class="sectionLabel">Backpacks</h2>
+      <div class="row">
+        <div class="filterContainer-sp">
+          <label class="filter-button" for="filter-toggle">Filter</label>
+          <input type="checkbox" id="filter-toggle"/>
+          <div id="toggle-content">
+            <form class="filterForm">
+              <h3>Categories</h3>
+              <h3>Price</h3>
+              <ul>
+                <li>
+                  <label class="radioContainer">
+                    Under $50
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+                <li>
+                  <label class="radioContainer">
+                    Under $50
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+                <li>
+                  <label class="radioContainer">
+                    Under $50
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+              </ul>
+              <h3>Categories</h3>
+              <ul>
+                <li>
+                  <label class="radioContainer">
+                    Backpacking
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+                <li>
+                  <label class="radioContainer">
+                    Camping
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+                <li>
+                  <label class="radioContainer">
+                    Field
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+                <li>
+                  <label class="radioContainer">
+                    Mountaineering
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                  </label>
+                </li>
+              </ul>
+            </form>
+
+          </div>
+        </div><!-- /.filterContainer-sp -->
+
+        <div class="col-3 filterContainer-pc">
+          <form class="filterForm">
+            <h3>Price</h3>
+            <ul>
+              <li>
+                <label class="radioContainer">
+                  Under $99.99
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="radioContainer">
+                  $100 - 199.99
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="radioContainer">
+                  $200 - 499.99
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="radioContainer">
+                  $500 - 999.99
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="radioContainer">
+                  $1000 and Higher
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+            </ul>
+            <h3>Categories</h3>
+            <ul>
+              <li>
+                <label class="radioContainer">
+                  Backpacking
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="radioContainer">
+                  Camping
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="radioContainer">
+                  Field
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li>
+                <label class="radioContainer">
+                  Mountaineering
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+            </ul>
+          </form>
+        </div><!-- /.filterContainer-pc -->
+        <div class="col-9">
+          <div class="row cards">
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Glacier_abyss-20.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Glacier_olive-10.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Glacier_pewter-50.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+          </div>
+          <div class="row cards">
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Hover_Pack_40_deep_sea-20.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Hover_Pack_50_ivy-20.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_T_100_black-10.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+          </div>
+          <div class="row cards">
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Terraframe_3-Zip_50_deep_earth-10.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Terraframe_80_phantom-10.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Terraplane_coyote-20.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+          </div>
+          <div class="row cards">
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Terraframe_80_phantom-10.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Terraplane_coyote-20.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+            <a href="./single-product.html">
+              <div class="col-4 card">
+                <img src="./imgs/products/backpacks/WS18_EX_Terraplane_evergreen-10.jpg" alt="Terraplane">
+                <h3>Terraplane</h3>
+                <span>455.00</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+
+      <div class="row">
+        <div class="col-3">
+          <a href="./index.html">
+            <div class="footer-logo"></div>
+          </a>
+        </div>
+        <div class="col-6 sns">
+          <ul>
+            <li><a href=""><i class="fab fa-facebook"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+            <li><a href=""><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <nav class="footerMenu">
+            <ul>
+              <li><a href="./index.html">Top</a></li>
+              <li><a href="./tents.html">Tents</a></li>
+              <li><a href="./jackets.html">Jackets</a></li>
+              <li><a href="./backpacks.html">backpacks</a></li>
+              <li><a href="./experience.html">Experience</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12">
+          <p class="copyright"><small>© 2018 Traverse Outdoor Equipment. All Rights Reserved</small></p>
+        </div>
+      </div>
+
+    </footer>    
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,911 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* base font */
+body {
+  font-family: "Opensans", sans-serif;
+}
+
+/* grid */
+.row {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row-full {
+  max-width: auto;
+}
+
+.row, .row-full {
+  overflow: auto;
+}
+
+.row:after, .row-full:after {
+  clear: both;
+}
+
+[class*="col-"] {
+  float: left;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+/* layouts and labels */
+.sectionLabel {
+  position: relative;
+  display: inline-block;
+  height: 250px;
+  width: 100%;
+  background: #333;
+  text-align: center;
+  color: #cc3300;
+  font-size: 42px;
+  text-transform: uppercase;
+  line-height: 250px;
+  margin-bottom: 60px;
+}
+
+.sectionLabel:after {
+  content: "";
+  position: absolute;
+  top: 250px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #cc3300;
+  animation: 1s fadeIn 0.3s cubic-bezier(0.8, 0.2, 0.05, 1) forwards;
+}
+
+.sectionLabel a {
+  color: #cc3300;
+}
+
+@keyframes fadeIn {
+
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+
+}
+
+/* components */
+header a {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+header a:hover {
+  color: #cc3300;
+}
+
+.header {
+  height: 70px;
+  background: #333;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 1200px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.brand {
+  margin-top: 5px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 90px;
+  height: 60px;
+  background: url("../imgs/logo/sprite-logo.png") no-repeat;
+  background-size: cover;
+  text-indent: -9999px;
+}
+
+.brand:hover {
+  background-position: 0px -62px;
+}
+
+/* 
+ * SP Menu Drawer style 
+ **/
+#sp-nav {
+  position: absolute;
+  top: 27px;
+  left: 20px;
+}
+
+#nav-toggle {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+#nav-toggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+}
+
+/* hamburger */
+#nav-toggle span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #ccc;
+  border-radius: 3px;
+  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.8, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+/* make the middle one longer */
+#nav-toggle span:nth-child(3) {
+  width: 40px;
+}
+
+#nav-toggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#nav-toggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* transform bars into cross mark */
+#nav-toggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(0, 9px);
+  background: #222;
+}
+
+#nav-toggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/* hide middle bar when checked */
+#nav-toggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/* drawer content box */
+#nav-content {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  margin: -54px 0 0 -20px;
+  padding: 50px;
+  background: #eee;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.05, 1);
+}
+
+#nav-content li:first-child {
+  margin: 30px auto;
+}
+  
+#nav-content li a {
+  width: 100px;
+  padding: 5px 10px;
+  display: inline-block;
+  color: #333;
+}
+
+#nav-content li a:hover {
+  color: #cc3300;
+}
+
+#nav-content li a:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background: transparent;
+  transition: all 0.1s ease-in-out;
+}
+
+#nav-content li a:hover:after {
+  width: 100%;
+  background: #cc3300;
+}
+
+/* draw submenu when checked */
+#nav-toggle input:checked ~ ul {
+  transform: none;
+}
+
+#sp-cart {
+  position: absolute;
+  top: 27px;
+  right: 30px;
+}
+
+#sp-cart i {
+  font-size: 18px;
+  color: #eee;
+  transition: color 0.3s ease;
+}
+
+#sp-cart i:hover {
+  color: #cc3300;
+}
+
+/* pc menu */
+#pc-nav {
+  float: right;
+  padding-right: 60px;
+  padding-top: 20px;
+}
+
+.mainList {
+  position: relative;
+  float: right;
+}
+
+.mainList > li {
+  float: left;
+  text-align: center;
+}
+
+.mainList li:hover .subList {
+  display: block;
+}
+
+.mainList li a {
+  width: 100px;
+  padding: 5px 10px;
+  display: inline-block;
+  color: #eee;
+}
+
+.mainList li a:hover {
+  color: #cc3300;
+}
+
+.mainList li a:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background: transparent;
+  transition: all 0.1s ease-in-out;
+}
+
+.mainList li a:hover:after {
+  width: 100%;
+  background: #cc3300;
+}
+
+.subList {
+  position: absolute;
+  left: 117px;
+  display: none;
+  text-align: left;
+  z-index: 3;
+}
+
+.signIn {
+  font-size: 14px;
+  border-left: 3px solid #eee;
+}
+
+.createAccount {
+  font-size: 14px;
+  margin-top: -8px;
+}
+
+
+/* topview */
+.hero {
+  height: 600px;
+  background: url("../imgs/hero.jpg") center / cover no-repeat;
+  text-align: center;
+}
+
+.overlay {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h2 {
+  padding-top: 180px;
+  color: #fff;
+  font-size: 42px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.hero .button {
+  margin-top: 100px;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+/* 3 overlay panels in top page */
+[class*="panel"] {
+  text-align: center;
+  color: #eee;
+}
+
+.panels .col-4 {
+  height: 270px;
+}
+
+.overlayPanel {
+  display:inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  transition: background-color 0.25s cubic-bezier(0.8, 0.2, 0.05, 1);
+}
+
+.overlayPanel:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.panel1 {
+  background: url("../imgs/panel/panel-tent.jpg") center/cover no-repeat;
+}
+
+.panel2 {
+  background: url("../imgs/panel/panel-jacket.jpg") center/cover no-repeat;
+}
+
+.panel3 {
+  background: url("../imgs/panel/panel-backpack.jpg") center/cover no-repeat;
+}
+
+/* large one at top */
+.panel4 {
+  background: url("../imgs/experience/cover.jpg") center/cover no-repeat;
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.panel-head {
+  display: inline-block;
+  padding: 24px 36px;
+  border: 3px solid #eee;
+  font-size: 32px;
+  text-transform: uppercase;
+  width: 260px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.panel-head-large {
+  padding: 36px 48px;
+  position: absolute;
+  width: 400px;
+  margin: 0;
+  top: 35%;
+  left: calc(50% - 200px);
+}
+
+.panel-body {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.panel-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.icon-tent {
+  background: url("../imgs/icons/camping.svg") center/cover no-repeat;
+}
+
+.icon-coat {
+  background: url("../imgs/icons/coat.svg") center/cover no-repeat;
+}
+
+.icon-backpack {
+  background: url("../imgs/icons/backpacking.svg") center/cover no-repeat;
+}
+
+.products {
+  color: #333;
+}
+
+.cards {
+  overflow: hidden;
+}
+
+.cards a {
+  color: #333;
+}
+
+.card {
+  margin: 30px auto;
+  text-align: center;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+}
+
+.gallery {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.imgBox {
+  margin: 0 auto;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.imgBox a img {
+  height: 100%;
+}
+
+/* PC filter for products page */
+.filterContainer-pc {
+  padding: 20px;
+}
+
+/* SP filter Toggle menu for products page */
+.filter-button {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  background: #cc3300;
+  line-height: 60px;
+  font-size: 18px;
+  color: #eee;
+}
+
+#filter-toggle {
+  display: none;
+}
+
+#toggle-content {
+  margin-bottom: 60px;
+  padding-left: 50px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.8, 0.2, 0.05, 1);
+}
+
+#filter-toggle:checked + #toggle-content {
+  max-height: 600px;
+}
+
+.filterForm h3 {
+  padding-top: 30px;
+  text-transform: uppercase;
+}
+
+.filterForm ul {
+  margin-bottom: 50px;
+}
+
+/* radio container */
+.radioContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* hide default button */
+.radioContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.radioContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a orange background */
+.radioContainer input:checked ~ .checkmark {
+  background-color: #cc3300;;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radioContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* single-product page */
+.singleProduct {
+  margin-bottom: 120px;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+.product-img {
+  background: url("../imgs/products/tents/SUNDOME_4-PERSON_DOME_TENT.jpg") center/cover no-repeat;
+  height: 400px;
+}
+
+.caption {
+  text-align: center;
+  font-size: 14px;
+}
+
+.product-detail {
+  padding: 30px;
+}
+
+.product-detail p {
+  padding: 10px 0;
+}
+
+.product-detail .desc {
+  margin: 30px auto 60px;
+  line-height: 1.3;
+}
+
+.product-detail .rating {
+  color: #cc3300;
+}
+
+.product-detail input {
+  text-transform: uppercase;
+  margin-top: 30px;
+  display: block;
+}
+
+
+/* Mission section */
+.mission {
+  color: #333;
+  overflow: hidden;
+  height: 500px;
+  background: #eee;
+  text-align: center;
+}
+
+.mission h3 {
+  padding-top: 150px;
+  font-size: 42px;
+  padding-bottom: 60px;
+}
+
+.mission-desc p {
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 500px;
+  line-height: 1.8;
+}
+
+/* contact */
+.formContainer {
+  text-align: center;
+  padding-bottom: 120px;
+}
+
+.formContainer h3 {
+  margin-bottom: 50px;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin: 5px auto;
+  outline:none;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+  border: 1px solid #cc3300;
+}
+
+textarea {
+  outline: none;
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  width: 50%;
+  height: 150px;
+  border: 1px solid #ccc;
+}
+
+.form-button {
+  margin: 30px auto;
+}
+
+
+/* footer */
+.footer {
+  padding: 30px 60px;
+  background: #333;
+  height: 270px;
+}
+
+.footer a {
+  color: #eee;
+  transition: color .3s ease;
+}
+
+.footer a:hover {
+  color: #cc3300;
+}
+
+.footer-logo {
+  width: 90px;
+  height: 60px;
+  background: url("../imgs/logo/sprite-logo.png") no-repeat;
+  background-size: cover;
+}
+
+.footer-logo:hover {
+  background-position: 0px -62px;
+}
+
+.footer .sns li {
+  float: left;
+  padding: 15px;
+}
+
+.footer .sns li i {
+  font-size: 24px;
+}
+
+.footer .footerMenu li a {
+  width: 100px;
+  padding: 5px 10px;
+  display: inline-block;
+  color: #eee;
+}
+
+.footer .footerMenu li a:hover {
+  color: #cc3300;
+}
+
+.footer .footerMenu li a:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background: transparent;
+  transition: all 0.1s ease-in-out;
+}
+
+.footer .footerMenu li a:hover:after {
+  width: 100%;
+  background: #cc3300;
+}
+
+.copyright {
+  text-align: center;
+  color: #eee;
+}
+
+/* parts */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.button-primary {
+  cursor: pointer;
+  width: 300px;
+  color: #fff;
+  border: 3px solid #cc3300;
+  background: linear-gradient(45deg, #cc3300 50%, transparent 50%);
+  background-repeat: no-repeat;
+  background-size: 650px;
+  background-position: 0%;
+  transition: background 0.35s cubic-bezier(0.8, 0.2, 0.05, 1);
+}
+
+.button:hover {
+  background-position: 100%;
+}
+
+.form-button {
+  display: block;
+}
+
+.form-button:hover, .product-button:hover {
+  color: #cc3300;
+}
+
+/* pc style */
+@media screen and (min-width: 768px) {
+  .header {
+    text-align: left;
+  }
+
+  #sp-nav {
+    display: none;
+  }
+
+  .filterContainer-sp {
+    display: none;
+  }
+}
+
+/* sp style */
+@media screen and (max-width: 768px) {
+
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  #pc-nav {
+    display: none;
+  }
+
+  .brand {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .hero,
+  .overlay {
+    height: 400px;
+  }
+
+  .hero h2 {
+    padding-top: 150px;
+    font-size: 24px;
+  }
+
+  .hero .button {
+    margin-top: 50px;
+    font-size: 16px;
+  }
+
+  .panels .col-4 {
+    height: 190px;
+  }
+  
+  .panel1 {
+    background-position: 30% 75%;
+  }
+  
+  .panel-body {
+    display: none;
+  }
+  
+  .sectionLabel {
+    height: 200px;
+    font-size: 36px;
+    line-height: 200px;
+    margin-bottom: 0;
+  }
+
+  .sectionLabel:after {
+    top: 200px;
+  }
+  
+  .filterContainer-pc {
+    display: none;
+  }
+  
+  .mission h3 {
+    font-size: 32px;
+  }
+  .mission p {
+    font-size: 12px;
+    width: 70%;
+  }
+
+  .gallery {
+    margin-bottom: 0;
+  }
+
+  .gallery-img {
+    height: 400px;
+  }
+
+  .caption {
+    display: none;
+  }
+
+  .panel-head-large {
+    position: absolute;
+    width: 300px;
+    margin: 0;
+    top: 35%;
+    left: calc(50% - 150px);
+  }
+
+  .footer {
+    height: 400px;
+  }
+
+  .product-detail {
+    text-align: center;
+  }
+
+  .product-detail input {
+    margin: 30px auto;
+  }
+
+  .imgBox {
+    height: 250px;
+  }
+
+}
